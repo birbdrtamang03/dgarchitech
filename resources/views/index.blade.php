@@ -7,6 +7,8 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
+        <!-- Favicon -->
+    <link rel="icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +50,7 @@
             <div class="header-carousel owl-carousel">
 
                 <div class="header-carousel-item">
-                    <img src="{{ asset('storage/' . $content->image_path) }}" class="img-fluid w-100" alt="Image">
+                    <img src="{{ asset(path: 'storage/' . $content->image_path) }}" class="img-fluid w-100" alt="Image">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row g-5">
