@@ -23,25 +23,30 @@
 <link rel="stylesheet" href="{{asset('css/tobBar.css')}}">
 
 <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-    <a href="" class="navbar-brand p-0">
-        <!-- <h1 class="logo">D.G-Archi-Tech's</h1> -->
-        <img src="{{asset('../../img/logo.png')}}" alt="Logo">
-    </a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="fa fa-bars"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0">
-            <a href="{{ route('home') }}"
-                class="nav-item nav-link {{ Request::routeIs('home') ? 'active' : '' }}">Home</a>
+        <div class="navbar-nav ms-auto py-0 w-100" style="display:flex;justify-content:center;align-items:center">
             <a href="{{ route('services') }}"
                 class="nav-item nav-link {{ Request::routeIs('services') ? 'active' : '' }}">Services</a>
             <a href="{{ route('portfolio') }}"
-                class="nav-item nav-link {{ Request::routeIs('portfolio') ? 'active' : '' }}">Portfolio</a>
-            <a href="{{ route('construction') }}"
-                class="nav-item nav-link {{ Request::routeIs('construction') ? 'active' : '' }}">Construction</a>
-            <a href="{{ route('insights') }}"
+                class="nav-item nav-link {{ Request::routeIs('portfolio') ? 'active' : '' }}">Profile</a>
+                <a href="{{ route('insights') }}"
                 class="nav-item nav-link {{ Request::routeIs('insights') ? 'active' : '' }}">Insights</a>
+            <!-- <a href="{{ route('construction') }}"
+                class="nav-item nav-link {{ Request::routeIs('construction') ? 'active' : '' }}">Construction</a> -->
+            <a href="{{ route('home') }}" class="navbar-brand p-0">
+
+                <div style="display:flex;justify-content:center;align-items:center;" >
+                    <!-- <h1 class="logo" style="font-size:28px">ARCH-TECHS'</h1>
+                    <h1 class="logo" id="text-logo">DG</h1>
+                    <h1 class="logo" style="font-size:28px">STUDIO</h1> -->
+                    <img src="{{asset('../../img/logo.png')}}" alt="Logo">
+                </div>
+            </a>
+
             <a href="{{ route('career') }}"
                 class="nav-item nav-link {{ Request::routeIs('career') ? 'active' : '' }}">Career</a>
             <a href="{{ route('about') }}"
@@ -51,3 +56,14 @@
         </div>
     </div>
 </nav>
+
+<style>
+    #text-logo{
+        font-size:38px;
+        border:3px solid #62b702;
+        padding:10px;
+        margin-inline:10px;
+        border-radius:40px;
+    }
+
+</style>
