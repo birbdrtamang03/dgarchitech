@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\HeroBanner;
 use App\Models\AboutUs;
+use App\Models\ServiceHeader;
+use App\Models\ServiceContent;
 
 class HeroBannerController extends Controller {
 
@@ -43,8 +45,12 @@ class HeroBannerController extends Controller {
         // about content
         $aboutContent = AboutUs::latest()->first(); // Get the most recent banner
 
+        // service
+        $serviceHeader = ServiceHeader::latest()->first(); // Get the most recent banner
+        $serviceContents = ServiceContent::all(); // Get all service contents
 
-        return view('index', compact('content','aboutContent'));
+
+        return view('index', compact('content','aboutContent','serviceHeader','serviceContents'));
 
     }
 

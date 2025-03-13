@@ -13,6 +13,7 @@ Route::get('/', [HeroBannerController::class, 'fetchHeroBannerContent'])->name('
 
 Route::get('/about', [AboutUsController::class, 'fetchAboutUsContent'])->name('about');
 Route::get('/services', [ServiceController::class, 'fetchServiceHeaderContent'])->name('services');
+Route::get('/service/{id}', [ServiceController::class, 'showServiceDetail'])->name('service.detail');
 
 Route::get('/portfolio',function(){
     return view('portfolio');
@@ -121,6 +122,7 @@ Route::post('/hero-banner', [HeroBannerController::class, 'store'])->name('hero-
 Route::post('/about-us', [AboutUsController::class, 'storeAboutUs'])->name('aboutUs.store');
 Route::post('/storeTeamMembers', [AboutUsController::class, 'storeTeamMembers'])->name('teamMembers.store');
 Route::post('/storeServiceHeader', [ServiceController::class, 'storeServiceHeader'])->name('serviceHeader.store');
+Route::post('/storeServiceContent', [ServiceController::class, 'storeServiceContent'])->name('serviceContent.store');
 
 
 

@@ -94,6 +94,38 @@
                                     </form>
                                 </div>
                             </div>
+
+                            <!-- Service Content Management -->
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <h5 class="card-header">#Service Content</h5>
+                                    <form action="{{route('serviceContent.store')}}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="card-body demo-vertical-spacing demo-only-element">
+                                            <div class="mb-3">
+                                                <label for="title" class="form-label">Title</label>
+                                                <input id="title" class="form-control" type="text"
+                                                    placeholder="Enter title" name="title" required />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="content" class="form-label">Content</label>
+                                                <textarea id="content" class="form-control" type="text"
+                                                    placeholder="Enter content" name="content" required></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="images" class="form-label">Images</label>
+                                                <div id="image-inputs">
+                                                    <input class="form-control mb-2" type="file" name="images[]" required />
+                                                </div>
+                                                <button type="button" class="btn btn-secondary" onclick="addImageInput()">+</button>
+                                            </div>
+                                            <button class="btn btn-primary d-grid w-40"
+                                                style="background-color: #63b701; border:none" type="submit">Update
+                                                Now</button>
+                                        </div>
+                                    </form>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -124,6 +156,18 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script>
+    function addImageInput() {
+        const imageInputs = document.getElementById('image-inputs');
+        const newInput = document.createElement('input');
+        newInput.className = 'form-control mb-2';
+        newInput.type = 'file';
+        newInput.name = 'images[]';
+        newInput.required = true;
+        imageInputs.appendChild(newInput);
+    }
+    </script>
 </body>
 
 </html>

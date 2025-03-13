@@ -144,85 +144,30 @@
         <!-- Services Start -->
         <div class="container-fluid service pb-5">
             <div class="container pb-5">
+                @if($serviceHeader)
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Our Services</h4>
-                    <h1 class="display-5 mb-4" style="font-size:34px">Designing Dreams, Building Futures!</h1>
-                    <p class="mb-0">At D.G Archi-techs, we offer a wide range of architectural and design solutions tailored to meet your unique needs.
-                    </p>
+                    <h1 class="display-5 mb-4" style="font-size:34px">{{$serviceHeader->header}}</h1>
+                    <p class="mb-0">{{$serviceHeader->sub_content}}</p>
                 </div>
+                @endif
+
+                <!-- service content here  -->
                 <div class="row g-4">
+                    @foreach($serviceContents as $serviceContent)
                     <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="service-item">
                             <div class="service-img">
-                                <img src="img/residential.jpg" class="img-fluid rounded-top w-100" alt="Image">
+                                <img src="{{ asset('images/' . $serviceContent->images[0]) }}" class="img-fluid rounded-top w-100" alt="Service Image">
                             </div>
                             <div class="rounded-bottom p-4">
-                                <a href="#" class="h4 d-inline-block mb-4">Residential Design</a>
-                                <p class="mb-4">Creating beautiful, functional, and sustainable homes that reflect your style and personality.</p>
-                                <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
+                                <a href="#" class="h4 d-inline-block mb-4">{{ $serviceContent->title }}</a>
+                                <p class="mb-4">{{ $serviceContent->content }}</p>
+                                <a class="btn btn-primary rounded-pill py-2 px-4" href="{{ route('service.detail', $serviceContent->id) }}">Learn More</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/commercial.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                            </div>
-                            <div class="rounded-bottom p-4">
-                                <a href="#" class="h4 d-inline-block mb-4">Commercial Architecture</a>
-                                <p class="mb-4">Delivering innovative and efficient designs for offices, retail spaces, and commercial buildings.</p>
-                                <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/interior.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                            </div>
-                            <div class="rounded-bottom p-4">
-                                <a href="#" class="h4 d-inline-block mb-4">Interior Design</a>
-                                <p class="mb-4">Enhancing interiors with modern aesthetics, optimized layouts, and personalized touches.</p>
-                                <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/renovation.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                            </div>
-                            <div class="rounded-bottom p-4">
-                                <a href="#" class="h4 d-inline-block mb-4">Renovation & Remodeling</a>
-                                <p class="mb-4">Breathing new life into existing spaces with creative renovations and remodeling.</p>
-                                <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/sustainable.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                            </div>
-                            <div class="rounded-bottom p-4">
-                                <a href="#" class="h4 d-inline-block mb-4">Sustainable Design</a>
-                                <p class="mb-4">Implementing eco-friendly solutions to create energy-efficient and environmentally conscious structures.</p>
-                                <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/3D-Rendering.jpeg" class="img-fluid rounded-top w-100" alt="Image">
-                            </div>
-                            <div class="rounded-bottom p-4">
-                                <a href="#" class="h4 d-inline-block mb-4">3D Rendering & Visualization</a>
-                                <p class="mb-4">Bringing your ideas to life with realistic 3D models and visualizations for better understanding and planning.</p>
-                                <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -638,7 +583,7 @@
                 </div>
                 <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
                     <div class="testimonial-item">
-                        
+
                         <div class="testimonial-img">
                             <img src="img/testimonial-1.jpg" class="img-fluid" alt="Image">
                         </div>

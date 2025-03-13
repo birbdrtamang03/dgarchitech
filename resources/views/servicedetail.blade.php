@@ -69,7 +69,9 @@
                     @foreach($serviceContents as $serviceContent)
                     <div class="col-md-4">
                         <div class="card mb-4">
-                            <img src="{{ asset('images/' . $serviceContent->images[0]) }}" class="card-img-top" alt="Service Image">
+                            @if(is_object($serviceContent) && property_exists($serviceContent, 'images') && is_array($serviceContent->images) && count($serviceContent->images) > 0)
+                                <img src="{{ asset('images/' . $serviceContent->images[0]) }}" class="card-img-top" alt="Service Image">
+                            @endif
                             <div class="card-body">
                                 <h5 class="card-title">{{ $serviceContent->title }}</h5>
                                 <p class="card-text">{{ $serviceContent->content }}</p>
